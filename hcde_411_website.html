@@ -7,153 +7,184 @@
 
 <title>Gender Inequity & Financial Vulnerability</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
 <script src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+<script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
 
 <style>
 
-body{
-margin:0;
-font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
-background-color:#f7f9fb;
-color:#1f2937;
-line-height:1.6;
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #f7f9fb;
+  color: #374151; /* Softer text color */
+  line-height: 1.7;
 }
 
-header{
-background:#111827;
-color:white;
-padding:60px 20px;
-text-align:center;
+/* 1. Tooltip Text Color Fix */
+#vg-tooltip-element, .tooltip {
+  color: #000000 !important;
 }
 
-header h1{
-font-size:2.5rem;
-margin-bottom:10px;
+p {
+  font-size: 1.1rem;
+  color: #4b5563;
 }
 
-header p{
-max-width:700px;
-margin:auto;
-font-size:1.1rem;
-opacity:0.9;
+header {
+  background: #111827;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
 }
 
-nav{
-position:sticky;
-top:0;
-background:white;
-padding:12px;
-text-align:center;
-box-shadow:0 2px 6px rgba(0,0,0,0.05);
-z-index:1000;
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
 }
 
-nav a{
-margin:0 15px;
-text-decoration:none;
-color:#2563eb;
-font-weight:500;
+header p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  color: #f3f4f6;
 }
 
-section{
-padding:90px 20px;
-max-width:1100px;
-margin:auto;
+/* Polished Nav Bar */
+nav {
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 1000;
+  border-bottom: 1px solid #e5e7eb;
 }
 
-.section-title{
-font-size:2rem;
-margin-bottom:20px;
+nav a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #4b5563;
+  font-weight: 500;
+  transition: color 0.2s ease;
 }
 
-.story-text{
-max-width:720px;
-margin-bottom:30px;
-font-size:1.05rem;
+nav a:hover {
+  color: #2563eb;
 }
 
-.viz-container{
-background:white;
-padding:20px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
+/* 2. Reduced spacing between sections */
+section {
+  padding: 40px 20px; 
+  max-width: 1100px;
+  margin: auto;
 }
 
-.chart-method{
-background:#eef2ff;
-padding:14px 16px;
-border-radius:8px;
-font-size:0.95rem;
-margin-bottom:20px;
-max-width:800px;
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #1f2937;
 }
 
-.concept-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-margin-top:30px;
+.story-text {
+  max-width: 720px;
+  margin-bottom: 30px;
+  font-size: 1.05rem;
 }
 
-.concept-card{
-background:white;
-padding:20px;
-border-radius:10px;
-box-shadow:0 6px 15px rgba(0,0,0,0.05);
+/* Polished Chart Containers */
+.viz-container {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border: 1px solid #e5e7eb;
 }
 
-.concept-card h3{
-margin-top:0;
-font-size:1.2rem;
+.chart-method {
+  background: #eef2ff;
+  padding: 14px 16px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  max-width: 800px;
+  color: #3730a3;
 }
 
-.interaction-tip{
-margin:25px auto 0;
-max-width:650px;
-background:#fff7ed;
-border-left:4px solid #f59e0b;
-padding:12px 16px;
-border-radius:6px;
-font-size:0.95rem;
-display:flex;
-align-items:center;
-gap:8px;
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
 }
 
-.tip-icon{
-font-size:1.2rem;
+.concept-card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e5e7eb;
 }
 
-.note{
-background:#fef3c7;
-padding:15px;
-border-radius:8px;
-font-size:0.9rem;
-margin-top:20px;
+.concept-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: #1f2937;
 }
 
-footer{
-background:#111827;
-color:white;
-text-align:center;
-padding:40px 20px;
-font-size:0.9rem;
+.interaction-tip {
+  margin: 25px auto 0;
+  max-width: 650px;
+  background: #fff7ed;
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #9a3412;
 }
 
-html{
-scroll-behavior:smooth;
+.tip-icon {
+  font-size: 1.2rem;
 }
 
-@media(max-width:700px){
-
-header h1{
-font-size:2rem;
+.note {
+  background: #fef3c7;
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  margin-top: 20px;
+  color: #92400e;
 }
 
-iframe{
-height:550px;
+footer {
+  background: #111827;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 0.9rem;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+@media(max-width: 700px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  iframe {
+    height: 550px;
+  }
 }
 
 </style>
@@ -188,8 +219,6 @@ implications for financial institutions, policy makers, and economic systems.
 <a href="#insights">Insights</a>
 </nav>
 
-
-<!-- KEY CONCEPTS -->
 
 <section id="concepts">
 
@@ -231,8 +260,6 @@ such as GDP per capita.
 </section>
 
 
-<!-- INCOME COMPARISON -->
-
 <section id="income-comparison">
 
 <h2 class="section-title">
@@ -263,8 +290,6 @@ allowfullscreen>
 </section>
 
 
-<!-- GLOBAL GAP -->
-
 <section id="global-gap">
 
 <h2 class="section-title">
@@ -273,7 +298,7 @@ Global Gender Gaps in Vulnerable Employment
 
 <div class="chart-method">
 <strong>How this chart was calculated:</strong>
-Gender gap = difference between female and male vulnerable employment rates in 2022 using ILO data.
+Gender gap = difference between women and men vulnerable employment rates in 2022 using ILO data.
 </div>
 
 <div class="viz-container">
@@ -291,8 +316,6 @@ allowfullscreen>
 </section>
 
 
-<!-- COUNTRY COUNT -->
-
 <section id="country-count">
 
 <h2 class="section-title">
@@ -304,22 +327,11 @@ How Many Countries Experience High Vulnerable Employment
 Countries grouped by vulnerable employment rates to show global distribution.
 </div>
 
-<div class="viz-container">
-
-<iframe
-src="https://public.tableau.com/views/FinalTableauDashboardUpdate/NumberofCountriesinVulnerableEmployment?:showVizHome=no&:embed=true"
-width="100%"
-height="700"
-frameborder="0"
-allowfullscreen>
-</iframe>
-
-</div>
+<div class="viz-container" id="altair-chart" style="min-height: 500px;">
+  </div>
 
 </section>
 
-
-<!-- HISTOGRAM (UPDATED) -->
 
 <section id="country-2023">
 
@@ -331,6 +343,11 @@ Country-Level Gender Disparities in 2023
 This histogram shows the gender gap in vulnerable employment across countries in 2023.
 Bars extending right indicate higher vulnerability among women, while bars extending left indicate higher vulnerability among men.
 </p>
+
+<div class="chart-method">
+<strong>How this chart was calculated:</strong>
+We calculated this by finding the percentage for men and women independently, and then taking the difference between the two (Women − Men).
+</div>
 
 <div class="viz-container">
 
@@ -346,8 +363,6 @@ allowfullscreen>
 
 </section>
 
-
-<!-- INSIGHTS -->
 
 <section id="insights">
 
@@ -395,6 +410,29 @@ credit access, and economic opportunity.
 <footer>
 Data Source: Modeled ILO Estimates | HCDE 411 Data Visualization Final Project
 </footer>
+
+<script>
+  // Paste your Altair JSON output inside this spec object!
+  var spec = {
+    // ---> PASTE YOUR ALTAIR JSON HERE <---
+    // Example placeholder:
+    // "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    // "description": "A simple bar chart with embedded data.",
+    // "data": {
+    //   "values": [
+    //     {"a": "A", "b": 28}, {"a": "B", "b": 55}, {"a": "C", "b": 43}
+    //   ]
+    // },
+    // "mark": "bar",
+    // "encoding": {
+    //   "x": {"field": "a", "type": "nominal", "axis": {"labelAngle": 0}},
+    //   "y": {"field": "b", "type": "quantitative"}
+    // }
+  };
+  
+  // This line tells Vega to embed the chart into the div with id="altair-chart"
+  vegaEmbed('#altair-chart', spec, {actions: false}).catch(console.error);
+</script>
 
 </body>
 </html>
