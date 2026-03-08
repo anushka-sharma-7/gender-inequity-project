@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>Gender Inequity & Financial Vulnerability</title>
 
 <script src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
@@ -105,12 +107,21 @@ margin-top:0;
 font-size:1.2rem;
 }
 
-footer{
-background:#111827;
-color:white;
-text-align:center;
-padding:40px 20px;
-font-size:0.9rem;
+.interaction-tip{
+margin:25px auto 0;
+max-width:650px;
+background:#fff7ed;
+border-left:4px solid #f59e0b;
+padding:12px 16px;
+border-radius:6px;
+font-size:0.95rem;
+display:flex;
+align-items:center;
+gap:8px;
+}
+
+.tip-icon{
+font-size:1.2rem;
 }
 
 .note{
@@ -119,6 +130,14 @@ padding:15px;
 border-radius:8px;
 font-size:0.9rem;
 margin-top:20px;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:40px 20px;
+font-size:0.9rem;
 }
 
 html{
@@ -135,49 +154,6 @@ iframe{
 height:550px;
 }
 
-.insight-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-  gap: 22px;
-  margin-top: 35px;
-}
-
-.insight-card {
-  background: white;
-  padding: 22px;
-  border-radius: 12px;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.07);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.insight-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 16px 32px rgba(0,0,0,0.1);
-}
-
-.insight-card h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 1.15rem;
-}  
-
-.interaction-tip {
-  margin: 25px auto 0;
-  max-width: 650px;
-  background: #fff7ed;
-  border-left: 4px solid #f59e0b;
-  padding: 12px 16px;
-  border-radius: 6px;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.interaction-tip span {
-  font-size: 1.2rem;
-}  
-
 }
 
 </style>
@@ -186,20 +162,23 @@ height:550px;
 <body>
 
 <header>
-  <h1>Gender Inequity in Financial Vulnerability</h1>
 
-  <p>
-    Across many countries, women remain disproportionately represented in vulnerable employment. 
-    This project explores structural patterns behind gender inequity in labor markets and its 
-    implications for financial institutions, policy makers, and economic systems.
-  </p>
+<h1>Gender Inequity in Financial Vulnerability</h1>
 
-  <div class="interaction-tip">
-  <span class="tip-icon">💡</span>
-  <span><strong>Tip:</strong> Hover over charts, click on data points, or use filters to explore the visualizations interactively.</span>
-  </div>
+<p>
+Across many countries, women remain disproportionately represented in vulnerable employment. 
+This project explores structural patterns behind gender inequity in labor markets and its 
+implications for financial institutions, policy makers, and economic systems.
+</p>
+
+<div class="interaction-tip">
+<span class="tip-icon">💡</span>
+<span><strong>Tip:</strong> Hover over charts, click on data points, or use filters to explore the visualizations interactively.</span>
+</div>
 
 </header>
+
+
 <nav>
 <a href="#concepts">Key Concepts</a>
 <a href="#income-comparison">Income Comparison</a>
@@ -210,7 +189,7 @@ height:550px;
 </nav>
 
 
-<!-- Key Concepts -->
+<!-- KEY CONCEPTS -->
 
 <section id="concepts">
 
@@ -228,7 +207,6 @@ These concepts explain how employment vulnerability and gender inequities are me
 <p>
 Vulnerable employment refers to jobs where workers have limited job security,
 unstable income, or limited access to benefits and legal protections.
-These jobs often include informal work or self-employment without social protections.
 </p>
 </div>
 
@@ -244,17 +222,16 @@ conditions such as job stability, income security, and access to opportunities.
 <h3>Income Level Groups</h3>
 <p>
 Countries are grouped as low-, middle-, or high-income based on economic indicators
-such as GDP per capita. These categories help compare labor market patterns across
-different economic contexts.
+such as GDP per capita.
 </p>
 </div>
 
 </div>
+
 </section>
 
 
-
-<!-- Income Level Comparison -->
+<!-- INCOME COMPARISON -->
 
 <section id="income-comparison">
 
@@ -263,56 +240,30 @@ How Vulnerable Employment Differs by Country Income Level
 </h2>
 
 <p class="story-text">
-To understand gender inequity in financial systems, we first examine how vulnerable
-employment varies across global economies. This visualization compares employment
-vulnerability across low-, middle-, and high-income countries over time.
+This visualization compares employment vulnerability across low-, middle-, and high-income countries over time.
 </p>
 
 <div class="chart-method">
 <strong>How this chart was calculated:</strong>
-This chart shows the average share of workers in vulnerable employment
-across countries grouped by income level. The values come from
-International Labour Organization (ILO) modeled employment estimates
-from 1991–2023.
+Average share of workers in vulnerable employment grouped by income level using ILO modeled estimates (1991–2023).
 </div>
 
 <div class="viz-container">
 
-<div class='tableauPlaceholder' id='viz1772052664985' style='position: relative'>
-<noscript>
-<a href='#'>
-<img alt='Comparing Level of Vulnerable Employment Across Countries'
-src='https://public.tableau.com/static/images/Fi/FinalTableauDashboardUpdate/ComparingLevelofVulnerableEmploymentAcrossCountrieswithLowMiddleandHighIncomefrom1991to2023/1_rss.png'
-style='border:none'/>
-</a>
-</noscript>
-
-<object class='tableauViz' style='display:none;'>
-<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-<param name='embed_code_version' value='3'/>
-<param name='name'
-value='FinalTableauDashboardUpdate/ComparingLevelofVulnerableEmploymentAcrossCountrieswithLowMiddleandHighIncomefrom1991to2023'/>
-<param name='tabs' value='no'/>
-<param name='toolbar' value='yes'/>
-</object>
-</div>
-
-<script>
-var divElement=document.getElementById('viz1772052664985');
-var vizElement=divElement.getElementsByTagName('object')[0];
-vizElement.style.width='100%';
-vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-var scriptElement=document.createElement('script');
-scriptElement.src='https://public.tableau.com/javascripts/api/viz_v1.js';
-vizElement.parentNode.insertBefore(scriptElement,vizElement);
-</script>
+<iframe
+src="https://public.tableau.com/views/FinalTableauDashboardUpdate/ComparingLevelofVulnerableEmploymentAcrossCountrieswithLowMiddleandHighIncomefrom1991to2023?:showVizHome=no&:embed=true"
+width="100%"
+height="700"
+frameborder="0"
+allowfullscreen>
+</iframe>
 
 </div>
+
 </section>
 
 
-
-<!-- Global Gender Gaps -->
+<!-- GLOBAL GAP -->
 
 <section id="global-gap">
 
@@ -320,17 +271,9 @@ vizElement.parentNode.insertBefore(scriptElement,vizElement);
 Global Gender Gaps in Vulnerable Employment
 </h2>
 
-<p class="story-text">
-This visualization explores differences in vulnerable employment
-between men and women across countries around the world.
-</p>
-
 <div class="chart-method">
 <strong>How this chart was calculated:</strong>
-Each country's vulnerable employment rate for men and women in 2022
-was calculated using ILO modeled data. The gender gap represents
-the difference between the percentage of women and men working
-in vulnerable employment.
+Gender gap = difference between female and male vulnerable employment rates in 2022 using ILO data.
 </div>
 
 <div class="viz-container">
@@ -344,11 +287,11 @@ allowfullscreen>
 </iframe>
 
 </div>
+
 </section>
 
 
-
-<!-- Number of Countries -->
+<!-- COUNTRY COUNT -->
 
 <section id="country-count">
 
@@ -356,16 +299,9 @@ allowfullscreen>
 How Many Countries Experience High Vulnerable Employment
 </h2>
 
-<p class="story-text">
-This chart helps show how widespread employment vulnerability is globally
-by counting how many countries fall into different employment categories.
-</p>
-
 <div class="chart-method">
 <strong>How this chart was calculated:</strong>
-Countries were grouped based on their vulnerable employment rates.
-The chart counts how many countries fall into each category to
-illustrate the global distribution of employment vulnerability.
+Countries grouped by vulnerable employment rates to show global distribution.
 </div>
 
 <div class="viz-container">
@@ -379,11 +315,11 @@ allowfullscreen>
 </iframe>
 
 </div>
+
 </section>
 
 
-
-<!-- Country Level -->
+<!-- HISTOGRAM (UPDATED) -->
 
 <section id="country-2023">
 
@@ -392,131 +328,69 @@ Country-Level Gender Disparities in 2023
 </h2>
 
 <p class="story-text">
-This visualization highlights differences in vulnerable employment
-between men and women across individual countries in 2023.
+This histogram shows the gender gap in vulnerable employment across countries in 2023.
+Bars extending right indicate higher vulnerability among women, while bars extending left indicate higher vulnerability among men.
 </p>
 
 <div class="viz-container">
 
-<div class='tableauPlaceholder' id='viz1772998810580' style='position: relative'>
-
-<noscript>
-<a href='#'>
-<img alt='Country-Level Gender Disparities in Vulnerable Employment for 2023'
-src='https://public.tableau.com/static/images/Re/RevisedHistogram/Sheet1/1_rss.png'
-style='border: none' />
-</a>
-</noscript>
-
-<object class='tableauViz' style='display:none;'>
-
-<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-<param name='embed_code_version' value='3' />
-<param name='site_root' value='' />
-
-<param name='name' value='RevisedHistogram/Sheet1' />
-
-<param name='tabs' value='no' />
-<param name='toolbar' value='yes' />
-
-<param name='static_image'
-value='https://public.tableau.com/static/images/Re/RevisedHistogram/Sheet1/1.png' />
-
-<param name='animate_transition' value='yes' />
-<param name='display_static_image' value='yes' />
-<param name='display_spinner' value='yes' />
-<param name='display_overlay' value='yes' />
-<param name='display_count' value='yes' />
-
-<param name='language' value='en-US' />
-<param name='filter' value='publish=yes' />
-
-</object>
-</div>
-
-<script type='text/javascript'>
-
-var divElement = document.getElementById('viz1772998810580');
-var vizElement = divElement.getElementsByTagName('object')[0];
-
-vizElement.style.width='100%';
-vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-
-var scriptElement = document.createElement('script');
-scriptElement.src='https://public.tableau.com/javascripts/api/viz_v1.js';
-
-vizElement.parentNode.insertBefore(scriptElement, vizElement);
-
-</script>
+<iframe
+src="https://public.tableau.com/views/RevisedHistogram/Sheet1?:showVizHome=no&:embed=true"
+width="100%"
+height="700"
+frameborder="0"
+allowfullscreen>
+</iframe>
 
 </div>
+
 </section>
 
 
-
-<!-- Insights -->
+<!-- INSIGHTS -->
 
 <section id="insights">
 
 <h2 class="section-title">
-Why These Patterns Matter for Financial Institutions & Systems
+Why These Patterns Matter for Financial Institutions
 </h2>
 
 <p class="story-text">
-Gender disparities in vulnerable employment are not only a labor issue but they also influence
-financial inclusion, credit access, and economic stability. The patterns shown in the
-visualizations above highlight several areas where financial institutions and policy
-makers can design more equitable financial systems.
+Gender disparities in vulnerable employment affect financial inclusion,
+credit access, and economic opportunity.
 </p>
 
 <div class="concept-grid">
 
 <div class="concept-card">
 <h3>Access to Credit</h3>
-<p>
-Workers in vulnerable employment often lack stable income documentation,
-which can make it harder to qualify for traditional loans or credit products.
-Financial institutions may need alternative credit assessment models
-to better serve these populations.
-</p>
+<p>Workers in vulnerable employment often lack stable income documentation.</p>
 </div>
 
 <div class="concept-card">
 <h3>Financial Product Design</h3>
-<p>
-Women in vulnerable employment may benefit from financial products that
-support irregular income patterns, such as flexible savings tools,
-microloans, or adaptive repayment schedules.
-</p>
+<p>Flexible savings tools and microfinance may better support irregular incomes.</p>
 </div>
 
 <div class="concept-card">
-<h3>Risk Assessment</h3>
-<p>
-Understanding employment vulnerability across regions can help financial
-institutions better assess economic risk and identify underserved markets
-where financial services could have the greatest impact.
-</p>
+<h3>Market Opportunities</h3>
+<p>Regions with high vulnerability may represent underserved financial markets.</p>
 </div>
 
 <div class="concept-card">
-<h3>Policy & Economic Development</h3>
-<p>
-Governments and development organizations can use this data to design
-policies that reduce employment vulnerability and improve financial
-inclusion for women in the workforce.
-</p>
+<h3>Policy Collaboration</h3>
+<p>Financial institutions can partner with governments to expand inclusion.</p>
 </div>
 
 </div>
 
 <div class="note">
-⚠️ Data Note: The employment data used in this project is based on modeled
-International Labour Organization (ILO) estimates rather than direct
-survey data.
+⚠️ Data Source: The data analyzed from Modeled International Labour Organization (ILO)
+  publishes estimated data based on current global trends. 
 </div>
 
 </section>
+
 
 <footer>
 Data Source: Modeled ILO Estimates | HCDE 411 Data Visualization Final Project
