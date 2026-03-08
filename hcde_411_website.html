@@ -1,268 +1,403 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gender Inequity & Financial Vulnerability</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gender Inequity & Financial Vulnerability</title>
 
-  <script src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
+<script src="https://public.tableau.com/javascripts/api/tableau.embedding.3.latest.min.js"></script>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background-color: #f7f9fb;
-      color: #1f2937;
-      line-height: 1.6;
-    }
+<style>
 
-    header {
-      background: #111827;
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
+body{
+margin:0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+background-color:#f7f9fb;
+color:#1f2937;
+line-height:1.6;
+}
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
+header{
+background:#111827;
+color:white;
+padding:60px 20px;
+text-align:center;
+}
 
-    header p {
-      max-width: 700px;
-      margin: auto;
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
+header h1{
+font-size:2.5rem;
+margin-bottom:10px;
+}
 
-    nav {
-      position: sticky;
-      top: 0;
-      background: white;
-      padding: 10px;
-      text-align: center;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      z-index: 1000;
-    }
+header p{
+max-width:700px;
+margin:auto;
+font-size:1.1rem;
+opacity:0.9;
+}
 
-    nav a {
-      margin: 0 15px;
-      text-decoration: none;
-      color: #2563eb;
-      font-weight: 500;
-    }
+nav{
+position:sticky;
+top:0;
+background:white;
+padding:12px;
+text-align:center;
+box-shadow:0 2px 6px rgba(0,0,0,0.05);
+z-index:1000;
+}
 
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+nav a{
+margin:0 15px;
+text-decoration:none;
+color:#2563eb;
+font-weight:500;
+}
 
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 20px;
-    }
+section{
+padding:90px 20px;
+max-width:1100px;
+margin:auto;
+}
 
-    .story-text {
-      max-width: 700px;
-      margin-bottom: 40px;
-      font-size: 1.1rem;
-    }
+.section-title{
+font-size:2rem;
+margin-bottom:20px;
+}
 
-    .viz-container {
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    }
+.story-text{
+max-width:720px;
+margin-bottom:30px;
+font-size:1.05rem;
+}
 
-    tableau-viz {
-      width: 100%;
-      height: 700px;
-    }
+.viz-container{
+background:white;
+padding:20px;
+border-radius:12px;
+box-shadow:0 10px 25px rgba(0,0,0,0.05);
+}
 
-    footer {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-    }
+.chart-method{
+background:#eef2ff;
+padding:14px 16px;
+border-radius:8px;
+font-size:0.95rem;
+margin-bottom:20px;
+max-width:800px;
+}
 
-    .note {
-      background: #fef3c7;
-      padding: 15px;
-      border-radius: 8px;
-      font-size: 0.9rem;
-      margin-top: 20px;
-    }
+.concept-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+margin-top:30px;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+.concept-card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 6px 15px rgba(0,0,0,0.05);
+}
+
+.concept-card h3{
+margin-top:0;
+font-size:1.2rem;
+}
+
+footer{
+background:#111827;
+color:white;
+text-align:center;
+padding:40px 20px;
+font-size:0.9rem;
+}
+
+.note{
+background:#fef3c7;
+padding:15px;
+border-radius:8px;
+font-size:0.9rem;
+margin-top:20px;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+@media(max-width:700px){
+
+header h1{
+font-size:2rem;
+}
+
+iframe{
+height:550px;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-  <h1>Gender Inequity in Financial Vulnerability</h1>
-  <p>
-    Across many countries, women remain disproportionately represented in vulnerable employment. 
-    This project explores structural patterns behind gender inequity in labor markets and its 
-    implications for financial institutions, policy makers, and economic systems.
-  </p>
+<h1>Gender Inequity in Financial Vulnerability</h1>
+
+<p>
+Across many countries, women remain disproportionately represented in vulnerable employment.
+This project explores structural patterns behind gender inequity in labor markets and its
+implications for financial institutions, policy makers, and economic systems.
+</p>
 </header>
 
 <nav>
-  <a href="#income-comparison">Income Comparison</a>
-  <a href="#global-gap">Global Gender Gap</a>
-  <a href="#country-count">Country Count</a>
-  <a href="#country-2023">2023 Disparities</a>
-  <a href="#insights">Insights</a>
+<a href="#concepts">Key Concepts</a>
+<a href="#income-comparison">Income Comparison</a>
+<a href="#global-gap">Global Gender Gap</a>
+<a href="#country-count">Country Count</a>
+<a href="#country-2023">2023 Disparities</a>
+<a href="#insights">Insights</a>
 </nav>
 
-<!-- Income Level Comparison -->
-<section id="income-comparison">
-  <h2 class="section-title">
-    Vulnerable Employment by Income Level (1991–2023)
-  </h2>
-  <p class="story-text">
-    This visualization compares vulnerable employment rates across 
-    low-, middle-, and high-income countries over time, highlighting 
-    structural economic differences across income groups.
-  </p>
 
-  <div class="viz-container">
-    <!-- Tableau canonical embed (placeholder + viz_v1.js) -->
-    <div class='tableauPlaceholder' id='viz1772052664985' style='position: relative'>
-      <noscript>
-        <a href='#'>
-          <img alt='Comparing Level of Vulnerable Employment Across Countries with Low, Middle and High Income from 1991 to 2023 '
-            src='https://public.tableau.com/static/images/Fi/FinalTableauDashboardUpdate/ComparingLevelofVulnerableEmploymentAcrossCountrieswithLowMiddleandHighIncomefrom1991to2023/1_rss.png'
-            style='border: none' />
-        </a>
-      </noscript>
-      <object class='tableauViz' style='display:none;'>
-        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-        <param name='embed_code_version' value='3' />
-        <param name='site_root' value='' />
-        <param name='name' value='FinalTableauDashboardUpdate/ComparingLevelofVulnerableEmploymentAcrossCountrieswithLowMiddleandHighIncomefrom1991to2023' />
-        <param name='tabs' value='no' />
-        <param name='toolbar' value='yes' />
-        <param name='static_image' value='https://public.tableau.com/static/images/Fi/FinalTableauDashboardUpdate/ComparingLevelofVulnerableEmploymentAcrossCountrieswithLowMiddleandHighIncomefrom1991to2023/1.png' />
-        <param name='animate_transition' value='yes' />
-        <param name='display_static_image' value='yes' />
-        <param name='display_spinner' value='yes' />
-        <param name='display_overlay' value='yes' />
-        <param name='display_count' value='yes' />
-        <param name='language' value='en-US' />
-        <param name='filter' value='publish=yes' />
-      </object>
-    </div>
-    <script type='text/javascript'>
-      var divElement = document.getElementById('viz1772052664985');
-      var vizElement = divElement.getElementsByTagName('object')[0];
-      vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
-      var scriptElement = document.createElement('script');
-      scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-      vizElement.parentNode.insertBefore(scriptElement, vizElement);
-    </script>
-    <p class="viz-fallback" style="margin-top:12px;font-size:0.95rem;color:#374151">If the visualization doesn't load here, open it on Tableau Public: <a href="https://public.tableau.com/views/FinalTableauDashboardUpdate/GenderandVulnerableEmployment" target="_blank" rel="noopener">View dashboard</a></p>
-  </div>
+<!-- Key Concepts -->
+
+<section id="concepts">
+
+<h2 class="section-title">Understanding the Key Concepts</h2>
+
+<p class="story-text">
+Before exploring the visualizations, it is helpful to understand a few key terms used in this project.
+These concepts explain how employment vulnerability and gender inequities are measured across countries.
+</p>
+
+<div class="concept-grid">
+
+<div class="concept-card">
+<h3>Vulnerable Employment</h3>
+<p>
+Vulnerable employment refers to jobs where workers have limited job security,
+unstable income, or limited access to benefits and legal protections.
+These jobs often include informal work or self-employment without social protections.
+</p>
+</div>
+
+<div class="concept-card">
+<h3>Gender Employment Gap</h3>
+<p>
+The gender employment gap describes differences between men and women in employment
+conditions such as job stability, income security, and access to opportunities.
+</p>
+</div>
+
+<div class="concept-card">
+<h3>Income Level Groups</h3>
+<p>
+Countries are grouped as low-, middle-, or high-income based on economic indicators
+such as GDP per capita. These categories help compare labor market patterns across
+different economic contexts.
+</p>
+</div>
+
+</div>
 </section>
+
+
+
+<!-- Income Level Comparison -->
+
+<section id="income-comparison">
+
+<h2 class="section-title">
+How Vulnerable Employment Differs by Country Income Level
+</h2>
+
+<p class="story-text">
+To understand gender inequity in financial systems, we first examine how vulnerable
+employment varies across global economies. This visualization compares employment
+vulnerability across low-, middle-, and high-income countries over time.
+</p>
+
+<div class="chart-method">
+<strong>How this chart was calculated:</strong>
+This chart shows the average share of workers in vulnerable employment
+across countries grouped by income level. The values come from
+International Labour Organization (ILO) modeled employment estimates
+from 1991–2023.
+</div>
+
+<div class="viz-container">
+
+<div class='tableauPlaceholder' id='viz1772052664985' style='position: relative'>
+<noscript>
+<a href='#'>
+<img alt='Comparing Level of Vulnerable Employment Across Countries'
+src='https://public.tableau.com/static/images/Fi/FinalTableauDashboardUpdate/ComparingLevelofVulnerableEmploymentAcrossCountrieswithLowMiddleandHighIncomefrom1991to2023/1_rss.png'
+style='border:none'/>
+</a>
+</noscript>
+
+<object class='tableauViz' style='display:none;'>
+<param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+<param name='embed_code_version' value='3'/>
+<param name='name'
+value='FinalTableauDashboardUpdate/ComparingLevelofVulnerableEmploymentAcrossCountrieswithLowMiddleandHighIncomefrom1991to2023'/>
+<param name='tabs' value='no'/>
+<param name='toolbar' value='yes'/>
+</object>
+</div>
+
+<script>
+var divElement=document.getElementById('viz1772052664985');
+var vizElement=divElement.getElementsByTagName('object')[0];
+vizElement.style.width='100%';
+vizElement.style.height=(divElement.offsetWidth*0.75)+'px';
+var scriptElement=document.createElement('script');
+scriptElement.src='https://public.tableau.com/javascripts/api/viz_v1.js';
+vizElement.parentNode.insertBefore(scriptElement,vizElement);
+</script>
+
+</div>
+</section>
+
+
 
 <!-- Global Gender Gaps -->
-<section id="global-gap">
-  <h2 class="section-title">
-    Global Gender Gaps in Vulnerable Employment (2022)
-  </h2>
-  <p class="story-text">
-    This interactive visualization explores gender gaps and vulnerable 
-    employment rates across countries worldwide in 2022.
-  </p>
 
-  <div class="viz-container">
-    <!-- Canonical Tableau Public iframe embed -->
-    <iframe
-      src="https://public.tableau.com/views/FinalTableauDashboardUpdate/ExploringGenderGapsandVulnerableEmploymentRatesAcrosstheGlobein2022?:showVizHome=no&:embed=true"
-      width="100%"
-      height="700"
-      frameborder="0"
-      allowfullscreen
-      aria-label="Global Gender Gaps in Vulnerable Employment - Tableau visualization"
-    ></iframe>
-    <p class="viz-fallback" style="margin-top:12px;font-size:0.95rem;color:#374151">If the visualization doesn't load here, open it on Tableau Public: <a href="https://public.tableau.com/views/FinalTableauDashboardUpdate/ExploringGenderGapsandVulnerableEmploymentRatesAcrosstheGlobein2022" target="_blank" rel="noopener">View dashboard</a></p>
-  </div>
+<section id="global-gap">
+
+<h2 class="section-title">
+Global Gender Gaps in Vulnerable Employment
+</h2>
+
+<p class="story-text">
+This visualization explores differences in vulnerable employment
+between men and women across countries around the world.
+</p>
+
+<div class="chart-method">
+<strong>How this chart was calculated:</strong>
+Each country's vulnerable employment rate for men and women in 2022
+was calculated using ILO modeled data. The gender gap represents
+the difference between the percentage of women and men working
+in vulnerable employment.
+</div>
+
+<div class="viz-container">
+
+<iframe
+src="https://public.tableau.com/views/FinalTableauDashboardUpdate/ExploringGenderGapsandVulnerableEmploymentRatesAcrosstheGlobein2022?:showVizHome=no&:embed=true"
+width="100%"
+height="700"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
 </section>
+
+
 
 <!-- Number of Countries -->
+
 <section id="country-count">
-  <h2 class="section-title">
-    Number of Countries in Vulnerable Employment
-  </h2>
-  <p class="story-text">
-    This visualization shows how many countries fall into vulnerable 
-    employment categories, helping contextualize the global scale 
-    of employment instability.
-  </p>
 
-  <div class="viz-container">
-    <!-- Canonical Tableau Public iframe embed -->
-    <iframe
-      src="https://public.tableau.com/views/FinalTableauDashboardUpdate/NumberofCountriesinVulnerableEmployment?:showVizHome=no&:embed=true"
-      width="100%"
-      height="700"
-      frameborder="0"
-      allowfullscreen
-      aria-label="Number of Countries in Vulnerable Employment - Tableau visualization"
-    ></iframe>
-    <p class="viz-fallback" style="margin-top:12px;font-size:0.95rem;color:#374151">If the visualization doesn't load here, open it on Tableau Public: <a href="https://public.tableau.com/views/FinalTableauDashboardUpdate/NumberofCountriesinVulnerableEmployment" target="_blank" rel="noopener">View dashboard</a></p>
-  </div>
+<h2 class="section-title">
+How Many Countries Experience High Vulnerable Employment
+</h2>
+
+<p class="story-text">
+This chart helps show how widespread employment vulnerability is globally
+by counting how many countries fall into different employment categories.
+</p>
+
+<div class="chart-method">
+<strong>How this chart was calculated:</strong>
+Countries were grouped based on their vulnerable employment rates.
+The chart counts how many countries fall into each category to
+illustrate the global distribution of employment vulnerability.
+</div>
+
+<div class="viz-container">
+
+<iframe
+src="https://public.tableau.com/views/FinalTableauDashboardUpdate/NumberofCountriesinVulnerableEmployment?:showVizHome=no&:embed=true"
+width="100%"
+height="700"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
 </section>
 
-<!-- 2023 Country-Level Disparities -->
+
+
+<!-- Country Level -->
+
 <section id="country-2023">
-  <h2 class="section-title">
-    Country-Level Gender Disparities in 2023
-  </h2>
-  <p class="story-text">
-    This visualization highlights country-level differences in 
-    vulnerable employment between men and women for 2023.
-  </p>
 
-  <div class="viz-container">
-    <!-- Canonical Tableau Public iframe embed -->
-    <iframe
-      src="https://public.tableau.com/views/FinalTableauDashboardUpdate/CountryLevelEmploymentVulnerability?:showVizHome=no&:embed=true"
-      width="100%"
-      height="700"
-      frameborder="0"
-      allowfullscreen
-      aria-label="Country-Level Gender Disparities in 2023 - Tableau visualization"
-    ></iframe>
-    <p class="viz-fallback" style="margin-top:12px;font-size:0.95rem;color:#374151">If the visualization doesn't load here, open it on Tableau Public: <a href="https://public.tableau.com/views/FinalTableauDashboardUpdate/CountryLevelEmploymentVulnerability" target="_blank" rel="noopener">View dashboard</a></p>
-  </div>
+<h2 class="section-title">
+Country-Level Gender Disparities in 2023
+</h2>
+
+<p class="story-text">
+This visualization highlights differences in vulnerable employment
+between men and women across individual countries in 2023.
+</p>
+
+<div class="chart-method">
+<strong>How this chart was calculated:</strong>
+For each country in 2023, the percentage of workers in vulnerable
+employment was calculated separately for men and women.
+The difference between these values shows the gender disparity
+within each country.
+</div>
+
+<div class="viz-container">
+
+<iframe
+src="https://public.tableau.com/views/FinalTableauDashboardUpdate/CountryLevelEmploymentVulnerability?:showVizHome=no&:embed=true"
+width="100%"
+height="700"
+frameborder="0"
+allowfullscreen>
+</iframe>
+
+</div>
 </section>
 
-<!-- Insights Section -->
+
+
+<!-- Insights -->
+
 <section id="insights">
-  <h2 class="section-title">
-    What This Means for Financial Institutions
-  </h2>
-  <p class="story-text">
-    Persistent gender gaps in vulnerable employment signal systemic economic imbalance. 
-    Financial institutions can use this data to design more equitable credit systems, 
-    targeted financial products, and policy frameworks that address structural inequities.
-  </p>
 
-  <div class="note">
-    ⚠️ Data Note: The employment data used in this project is based on modeled ILO estimates 
-    and represents predicted values rather than raw survey-recorded data.
-  </div>
+<h2 class="section-title">
+What This Means for Financial Institutions
+</h2>
+
+<p class="story-text">
+Persistent gender gaps in vulnerable employment signal structural
+economic inequalities. Financial institutions can use insights like
+these to design more equitable credit systems, targeted financial
+products, and policies that better support workers in unstable
+employment conditions.
+</p>
+
+<div class="note">
+⚠️ Data Note: The employment data used in this project is based on
+modeled International Labour Organization (ILO) estimates rather
+than direct survey data.
+</div>
+
 </section>
+
 
 <footer>
-  Data Source: Modeled ILO Estimates | Created for Data Visualization Final Project  
+Data Source: Modeled ILO Estimates | Data Visualization Project
 </footer>
 
 </body>
